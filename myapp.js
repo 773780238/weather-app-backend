@@ -44,7 +44,14 @@ app.get('/geoTimeWeather', function(req, res){
      console.log(res.json(response));
   })
 });
-app.get('')
+app.get('/getSeal', function(req, res){
+  let state = req.query.state;
+  let url = 'https://www.googleapis.com/customsearch/v1?q='+state+'%20State%20Seal&cx=014401200645989531307:c9etekf1von&imgSize=huge&imgType=news&num=1&searchType=image&key=AIzaSyDuF1w7x4EE52dVCUWjKG0i8NReMff13gk';
+  app.make_API_call(url)
+  .then(response => {
+      console.log(res.json(response));
+  })
+});
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
