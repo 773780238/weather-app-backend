@@ -52,6 +52,14 @@ app.get('/getSeal', function(req, res){
       console.log(res.json(response));
   })
 });
+app.get('/getAuto', function(req, res){
+  let prefix = req.query.prefix;
+  let url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+prefix+'&types=(cities)&key=AIzaSyDuF1w7x4EE52dVCUWjKG0i8NReMff13gk';
+  app.make_API_call(url)
+  .then(response => {
+      console.log(res.json(response));
+  })
+});
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
